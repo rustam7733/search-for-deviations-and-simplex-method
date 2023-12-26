@@ -19,8 +19,6 @@ namespace DataScience_ИК
             CalculateBt.ForeColor = Color.Black;
         }
 
-        
-
         private void CalculateBt_Click(object sender, EventArgs e)
         {
             resultRTb.Text = "";

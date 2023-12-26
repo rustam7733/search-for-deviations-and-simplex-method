@@ -315,8 +315,8 @@ namespace DataScience_ИК
 
         private void SimplexBt_Click(object sender, EventArgs e)
         {
-            SimplexMethodForm form = new SimplexMethodForm();
-            form.ShowDialog();
+            using (SimplexMethodForm form = new SimplexMethodForm())
+                form.ShowDialog();
         }
 
         private void SetColors(GraphPane gp)
