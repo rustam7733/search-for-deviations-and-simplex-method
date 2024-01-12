@@ -32,7 +32,6 @@ namespace DataScience_ИК
             {
                 TableRecalculation(table);
                 PrintTable(table, resultRTb);
-                resultRTb.Text += "\n\n";
                 counter--;
             }
 
@@ -83,29 +82,28 @@ namespace DataScience_ИК
 
         static void PrintTable(double[,] table, RichTextBox resultRTb)
         {
-            resultRTb.Text += "\n";
             if (IsOptimal(table))
             {
-                resultRTb.Text += "-----------------------------------" +
-                    "-------------------------------------------------" +
-                    "------------------------------------\n";
+                resultRTb.Text += "===================================" +
+                    "===================================\n\n";
+
                 resultRTb.Text += $"     Итоговая таблица ↓\n";
             }
+
+            resultRTb.Text += "____________________________________________________________________________\n";
 
             for (int i = 0; i < table.GetLength(0); i++)
             {
                 if (IsOptimal(table))
                     for (int j = 0; j < table.GetLength(1) - 1; j++)
-                        resultRTb.Text += "     " + Margins(Math.Round(table[i, j], 3));
+                        resultRTb.Text += "" + Margins(Math.Round(table[i, j], 3));
 
                 else
                     for (int j = 0; j < table.GetLength(1); j++)
-                        resultRTb.Text += "     " + Margins(Math.Round(table[i, j], 3));
+                        resultRTb.Text += "" + Margins(Math.Round(table[i, j], 3));
 
                 resultRTb.Text += "|\n";
             }
-
-            resultRTb.Text += "\n";
         }
 
         static (int,double)[] GetVariables(double[,] table)
@@ -276,7 +274,6 @@ namespace DataScience_ИК
             //limitationsTb.Text = "3";
             //iterationsTb.Text = "6";
             //matrixRTb.Text = "1 1 -1 -1 0 0 8\n1 -1 2 0 -1 0 2\n-2 -8 3 0 0 -1 1";
-
 
             functionTb.Text = "1 2 -1 1";
             variablesTb.Text = "4";
